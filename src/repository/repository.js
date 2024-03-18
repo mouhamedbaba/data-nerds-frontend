@@ -1,5 +1,5 @@
 const { default: axios } = require("axios");
-const url = "http://api-datanerds.vercel.app";
+const url = "https://api-datanerds.vercel.app/";
 import { getDownloadURL, ref , uploadBytes} from "firebase/storage";
 
 import { storage } from "@/config/firebase_config";
@@ -19,7 +19,7 @@ const config = {
 
 export const get_data = async () => {
     return await axios
-        .get("/users", config)
+        .get("/users/", config)
         .then((response) => {
             console.log(response.data);
             return response.data;
@@ -31,7 +31,7 @@ export const get_data = async () => {
 
 export const get_imag_urls = async () => {
     return await axios
-        .get("/images", config)
+        .get("/images/", config)
         .then((response) => {
 
             console.log(response.data);
