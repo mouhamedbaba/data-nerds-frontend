@@ -1,5 +1,5 @@
 const { default: axios } = require("axios");
-const url = "http://localhost:8000";
+const url = "http://api-datanerds.vercel.app";
 import { getDownloadURL, ref , uploadBytes} from "firebase/storage";
 
 import { storage } from "@/config/firebase_config";
