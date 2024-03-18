@@ -35,7 +35,7 @@ const Upload = () => {
                         <input id="dropzone-file" type="file" className="hidden"  onChange={(e) => setFile(e.target.files[0])} />
                     </label>
                 </div> 
-                <button className='bg-blue-500 rounded-sm px-4 py-2' type="submit">Télécharger</button>
+                <button className='bg-blue-500 rounded-sm px-4 py-2 w-full mt-4' type="submit">Télécharger</button>
             </form>
             <div className='mt-2 flex gap-3 mx-auto'>
                 {images.map((image) => {
