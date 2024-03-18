@@ -1,8 +1,7 @@
 import { add_image_url, get_imag_urls } from '@/repository/repository';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-export const Upload = () => {
+const Upload = () => {
     const [images, setImages] = useState([]);
     const [file, setFile] = useState("");
 
@@ -50,3 +49,5 @@ export const Upload = () => {
         </div>
     );
 }
+
+export default Upload
