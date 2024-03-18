@@ -1,38 +1,33 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { data } from "autoprefixer";
+import { get_data } from "@/repository/repository";
+import { Upload } from "./textuploadtofb";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [students, setStudents] = useState([]);
-  const getData = async () => {
-
-    try {
-      await axios.get("https://api-datanerds.vercel.app/api/").then((response) => {
-        let l_data = new Array(response.data);
-        setStudents(l_data);
-        console.log(l_data);
-      });
-    } catch (error) {
-      console.error(error);
-    }
+  const get_all = async () => {
+    const data = await get_data();
+    setStudents(data);
+    console.log(data);
   }
-  useEffect(() => {
 
-    getData();
-  }, []);
+  useEffect(() => {
+    get_all();
+  }, [])
+
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+      className={` min-h-screen  p-24 ${inter.className}`}
     >
-      <table className="w-full table-auto text-sm" aria-describedby="students" >
+      {/* <table className="w-full table-auto text-sm" aria-describedby="students" >
     <thead>
         <tr className="bg-slate-800 text-slate-100">
             <th className="px-4 py-2">ID</th>
-            <th className="px-4 py-2">Numéro</th>
+            <th className="px-4 py-2">Nsenameuméro</th>
             <th className="px-4 py-2">Prénom</th>
             <th className="px-4 py-2">Nom</th>
             <th className="px-4 py-2">Date de naissance</th>
@@ -45,21 +40,24 @@ export default function Home() {
       {
         students.map((student) => {
           return (
+
             <tr className="bg-slate-100" key={student.id}>
-                <td className="px-4 py-2 text-center">{student["id"]}</td>
-                <td className="px-4 py-2 text-center">{student.num}</td>
-                <td className="px-4 py-2 text-center">{student.prenom}</td>
-                <td className="px-4 py-2 text-center">{student.nom}</td>
-                <td className="px-4 py-2 text-center">{student.date_naissance}</td>
-                <td className="px-4 py-2 text-center">{student.math}</td>
-                <td className="px-4 py-2 text-center">{student.francais}</td>
-                <td className="px-4 py-2 text-center">{student.histoire}</td>
+                <td className="px-4 py-2 text-center text-slate-800">{student.id}</td>
+                <td className="px-4 py-2 text-center text-slate-800">{student.username}</td>
+                <td className="px-4 py-2 text-center text-slate-800">3{student.prenom}</td>
+                <td className="px-4 py-2 text-center text-slate-800">4{student.nom}</td>
+                <td className="px-4 py-2 text-center text-slate-800">5{student.date_naissance}</td>
+                <td className="px-4 py-2 text-center text-slate-800">6{student.math}</td>
+                <td className="px-4 py-2 text-center text-slate-800">7{student.francais}</td>
+                <td className="px-4 py-2 text-center text-slate-800">8{student.histoire}</td>
             </tr>
           )
         })
       }
     </tbody>
-</table>
+</table> */}
+<Upload/>
+
     </main>
   );
 }
