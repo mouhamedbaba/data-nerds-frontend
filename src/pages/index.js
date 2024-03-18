@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import { get_data } from "@/repository/repository";
-import { Upload } from "./textuploadtofb";
+import Upload from "./textuploadtofb";
 
 
 const inter = Inter({ subsets: ["latin"] });
